@@ -3,12 +3,12 @@
 import { useForm } from "react-hook-form";
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import logo from "@/public/logo.png";
+import logo from "@/public/logo-sin-fondo.png";
 
 type FormData = {
   iglesia: string;
   nombres: string;
-  apellidos: string;
+  apellidos: string;  
   celular: string;
   edad: string;
   ciudad: string;
