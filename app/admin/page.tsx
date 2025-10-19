@@ -10,7 +10,7 @@ type Registro = {
     apellidos: string;
     celular: string;
     edad: string;
-    ciudad: string;
+    distrito: string;
     };
 
     export default function AdminPage() {
@@ -26,7 +26,7 @@ type Registro = {
         apellidos: r.apellidos || "",
         celular: r.celular || "",
         edad: r.edad || "",
-        ciudad: r.ciudad || "",
+        distrito: r.distrito || "",
         }));
         setRegistros(registrosFormateados);
     })
@@ -49,11 +49,11 @@ const exportToExcel = () => {
         `${r.nombres} ${r.apellidos}`,
         r.celular,
         r.edad,
-        r.ciudad,
+        r.distrito,
         ]);
 
         autoTable(doc, {
-        head: [["Iglesia", "Nombre Completo", "Celular", "Edad", "Ciudad"]],
+        head: [["Iglesia", "Nombre Completo", "Celular", "Edad", "Distrito"]],
         body: tableData,
         startY: 20,
         });
@@ -101,7 +101,7 @@ const exportToExcel = () => {
                 <th className="p-2 border border-cyan-600/30">Nombre</th>
                 <th className="p-2 border border-cyan-600/30">Celular</th>
                 <th className="p-2 border border-cyan-600/30">Edad</th>
-                <th className="p-2 border border-cyan-600/30">Ciudad</th>
+                <th className="p-2 border border-cyan-600/30">Distrito</th>
                 <th className="p-2 border border-cyan-600/30">Acciones</th>
                 </tr>
             </thead>
@@ -118,7 +118,7 @@ const exportToExcel = () => {
                     </td>
                     <td className="border border-cyan-600/20 p-2">{r.celular}</td>
                     <td className="border border-cyan-600/20 p-2">{r.edad}</td>
-                    <td className="border border-cyan-600/20 p-2">{r.ciudad}</td>
+                    <td className="border border-cyan-600/20 p-2">{r.distrito}</td>
                     <td className="border border-cyan-600/20 p-2">
                         <button
                         onClick={() => eliminarRegistro(i)}

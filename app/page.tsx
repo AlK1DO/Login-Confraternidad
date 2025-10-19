@@ -11,7 +11,7 @@ type FormData = {
   apellidos: string;  
   celular: string;
   edad: string;
-  ciudad: string;
+  distrito: string;
 };
 
 export default function RegistroConfraternidad() {
@@ -39,7 +39,7 @@ export default function RegistroConfraternidad() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify([[data.iglesia, data.nombres, data.apellidos, data.celular, data.edad, data.ciudad]]),
+      body: JSON.stringify([[data.iglesia, data.nombres, data.apellidos, data.celular, data.edad, data.distrito]]),
     });
 
     if (response.ok) {
