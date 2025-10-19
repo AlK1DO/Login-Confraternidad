@@ -54,7 +54,6 @@ export default function RegistroConfraternidad() {
   }
 };
 
-
   return (
     <div
       className="min-h-screen flex flex-col items-center justify-center text-white relative overflow-hidden"
@@ -65,7 +64,6 @@ export default function RegistroConfraternidad() {
     >
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.15),transparent_60%),radial-gradient(circle_at_80%_80%,rgba(255,255,255,0.15),transparent_60%)] animate-pulse" />
 
-      {/* Encabezado */}
       <div className="relative z-10 flex flex-col items-center text-center p-4 mb-4 animate-fadeIn">
         <div className="flex items-center gap-4 mb-4">
           <Image
@@ -92,7 +90,6 @@ export default function RegistroConfraternidad() {
         )}
       </div>
 
-      {/* Formulario */}
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="relative z-10 bg-white/10 backdrop-blur-2xl p-8 rounded-3xl shadow-2xl w-[90%] max-w-md space-y-4 border border-sky-200/30 transition hover:border-sky-100/70 hover:shadow-sky-300/20"
@@ -122,7 +119,6 @@ export default function RegistroConfraternidad() {
         </button>
       </form>
 
-      {/* Pie de página */}
       <footer className="relative z-10 mt-10 text-sky-100 text-sm text-center tracking-wide drop-shadow-sm">
         © 2025 Confraternidad Juvenil | DISEÑADO POR EL GRUPO DE MULTIMEDIA S.M.P
       </footer>

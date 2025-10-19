@@ -1,5 +1,4 @@
 "use client";
-
 import { useEffect, useState } from "react";
 import * as XLSX from "xlsx";
 import jsPDF from "jspdf";
@@ -34,9 +33,7 @@ type Registro = {
     .catch((err) => console.error("Error al cargar registros:", err));
 }, []);
 
-
-    // 🔹 Exportar a Excel
-    const exportToExcel = () => {
+const exportToExcel = () => {
         const ws = XLSX.utils.json_to_sheet(registros);
         const wb = XLSX.utils.book_new();
         XLSX.utils.book_append_sheet(wb, ws, "Registros");
