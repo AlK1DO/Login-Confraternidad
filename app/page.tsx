@@ -34,7 +34,7 @@ export default function RegistroConfraternidad() {
 
   const onSubmit = async (data: FormData) => {
   try {
-    const response = await fetch("https://v1.nocodeapi.com/aikidoz/google_sheets/oNGBGDisljOJWUPO?spreadsheetId=17a-30hpP6gjMdilySl164YFx12BEmEHNgS23BU2kW2A", {
+    const response = await fetch("https://v1.nocodeapi.com/aikidoz/google_sheets/oNGBGDisljOJWUPO?spreadsheetId=17a-30hpP6gjMdilySl164YFx12BEmEHNgS23BU2kW2A&tabId=hoja1", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
