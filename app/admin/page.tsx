@@ -17,7 +17,7 @@ type Registro = {
     const [registros, setRegistros] = useState<Registro[]>([]);
 
     useEffect(() => {
-    fetch("https://v1.nocodeapi.com/aikidoz/google_sheets/dLqsyMHdsIGfdoTh?tabId=hoja1")
+    fetch("https://v1.nocodeapi.com/aikidoz/google_sheets/KaUXEbYoOynMADyh?tabId=hoja1")
     .then((res) => res.json())
     .then((data) => {
         const registrosFormateados = data.data.map((r: any) => ({
