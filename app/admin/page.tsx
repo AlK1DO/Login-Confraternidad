@@ -18,9 +18,22 @@ type Registro = {
     const [registros, setRegistros] = useState<Registro[]>([]);
 
     useEffect(() => {
-        const data = localStorage.getItem("registrosConfraternidad");
-        if (data) setRegistros(JSON.parse(data));
-    }, []);
+    fetch("https://v1.nocodeapi.com/aikidoz/google_sheets/osbxZBWbSqfNkWdI")
+    .then((res) => res.json())
+    .then((data) => {
+        const registrosFormateados = data.data.map((r: any) => ({
+        iglesia: r.iglesia || "",
+        nombres: r.nombres || "",
+        apellidos: r.apellidos || "",
+        celular: r.celular || "",
+        edad: r.edad || "",
+        ciudad: r.ciudad || "",
+        }));
+        setRegistros(registrosFormateados);
+    })
+    .catch((err) => console.error("Error al cargar registros:", err));
+}, []);
+
 
     // 🔹 Exportar a Excel
     const exportToExcel = () => {

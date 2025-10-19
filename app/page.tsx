@@ -32,19 +32,28 @@ export default function RegistroConfraternidad() {
       .catch((err) => console.error("Error cargando versículos:", err));
   }, []);
 
-  const onSubmit = (data: FormData) => {
-    const nuevos = [...registros, data];
-    setRegistros(nuevos);
-    localStorage.setItem("registrosConfraternidad", JSON.stringify(nuevos));
+  const onSubmit = async (data: FormData) => {
+  try {
+    const response = await fetch("https://v1.nocodeapi.com/aikidoz/google_sheets/osbxZBWbSqfNkWdI", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify([[data.iglesia, data.nombres, data.apellidos, data.celular, data.edad, data.ciudad]]),
+    });
 
-    if (versiculos.length > 0) {
-      const random = versiculos[Math.floor(Math.random() * versiculos.length)];
-      setVersiculo(random);
+    if (response.ok) {
+      alert("✅ Registro exitoso. ¡Nos vemos en la confraternidad!");
+      reset();
+    } else {
+      alert("❌ Error al guardar el registro. Intenta nuevamente.");
     }
+  } catch (error) {
+    console.error(error);
+    alert("⚠️ Error de conexión. Revisa tu internet.");
+  }
+};
 
-    alert("✅ Registro exitoso. ¡Nos vemos en la confraternidad!");
-    reset();
-  };
 
   return (
     <div
@@ -88,12 +97,12 @@ export default function RegistroConfraternidad() {
         onSubmit={handleSubmit(onSubmit)}
         className="relative z-10 bg-white/10 backdrop-blur-2xl p-8 rounded-3xl shadow-2xl w-[90%] max-w-md space-y-4 border border-sky-200/30 transition hover:border-sky-100/70 hover:shadow-sky-300/20"
       >
-        {["iglesia", "nombres", "apellidos", "celular", "edad", "ciudad"].map(
+        {["iglesia", "nombres", "apellidos", "celular", "edad", "distrito"].map(
           (campo) => (
             <input
               key={campo}
               {...register(campo as keyof FormData, {
-                required: campo !== "edad" && campo !== "ciudad",
+                required: campo !== "edad" && campo !== "distrito",
               })}
               placeholder={
                 campo === "iglesia"
